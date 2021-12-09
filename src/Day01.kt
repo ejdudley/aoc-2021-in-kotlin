@@ -2,10 +2,14 @@ fun main() {
 
     fun part1(input: List<String>): Int {
 
-        val n = input.map { it.toInt() }
-            .reduceIndexed { index, acc, _ -> acc + if (input[index] > input[index - 1]) 1 else 0 }
+        val listLen = input.size
+        var count = 0
+        for (i in 1 until listLen) {
+            if (input[i].toInt() > input[i-1].toInt()) count++
+        }
 
-        return n - input[0].toInt()
+       return count
+
     }
 
     val testInput = readInput("Day01_test")
